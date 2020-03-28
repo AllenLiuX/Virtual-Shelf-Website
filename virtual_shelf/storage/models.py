@@ -44,7 +44,8 @@ class Ownership(models.Model):
 	price = models.FloatField()
 	quantity = models.IntegerField()
 
+	class Meta:
+		ordering = ['store']
 
-
-
-
+	def __str__(self):
+		return str(self.quantity) + " " + self.item.name + " in " + self.store.name

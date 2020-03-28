@@ -22,3 +22,15 @@ def storage_search(request):
     storages = StoragePost.objects.all()
     context = {'storages': storages}
     return render(request, 'storage/search.html', context)
+
+def search_item(request, item_name):
+    try:
+        item = Item.objects.get(name=item_name)
+    except Item.DoesNotExist:
+        item = None
+    if !item:
+        return 
+    ownerships = Ownership.objects.filter(item=item)
+    context = { 'ownerships': ownerships }
+    return render(request, 'storage/item_result.html', context)
+
