@@ -1,24 +1,19 @@
 {
   "value": [
     {
-      "userId": "Ralphs",
-      "userName": "ralphs",
-      "word": "ralphs",
-      "description": "ralphs"
+      "userId": "Ralph's",
+      "userName": "Ralph's",
+      "word": "Ralph's",
+      "description": "Ralph's"
     },
     {
       "userId": "1",
-      "word": "target",
+      "word": "Target",
       "description": "0"
     },
     {
       "userId": "2",
       "word": "711",
-      "description": "0"
-    },
-    {
-      "userId": "3",
-      "word": "whole food",
       "description": "0"
     }
   ]

@@ -22,22 +22,22 @@
             -moz-background-size: cover;
             -ms-background-size: cover;
         }
-        .mui-content{
-        background: url(/static/images/supermarket.jpg) bottom center no-repeat #efeff4 ;
-        background-size: 100% 100%;
-        width: 100%;
-        height: 100%;
-    }
         .title2{
             position: relative;
-            top: 250px;
-            left: 250px;
+            top: 170px;
+            left: 400px;
+        }
+        .search{
+            opacity: 0.8;
+            background-image: url('http://static.runoob.com/images/mix/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
         }
 
     </style>
 
     <div class="title2">
-        <h2>Find The Grocery</h2>
+        <h1 style="position: relative; left: 270px;">Find The Grocery</h1>
 <!--        <p>这是一个基于 bootstrap 按钮式下拉菜单组件的搜索建议插件.</p>-->
 <!--        <p>使用说明：-->
 <!--            <a href="README.html" target="_blank">README.html</a>-->
@@ -47,95 +47,38 @@
 <!--            <h3>测试(URL 获取)</h3>-->
 <!--            <p>配置了 data-id，非下拉菜单选择输入则背景色警告。</p>-->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="test">
+                        <input type="text" class="form-control" id="test" placeholder="Search..">
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+<!--                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
+<!--                                <span class="caret"></span>-->
+<!--                            </button>-->
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" style="opacity: 0.8;">
                             </ul>
                         </div>
                         <!-- /btn-group -->
                     </div>
                 </div>
             </div>
+        </form>
+    </div>
 
-<!--            <h3>测试(URL 获取)</h3>-->
-<!--            <p>不展示下拉菜单按钮。</p>-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" class="form-control" id="testNoBtn">-->
-<!--                        <div class="input-group-btn">-->
-<!--                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-<!--                                <span class="caret"></span>-->
-<!--                            </button>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; /btn-group &ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+    <div style="position: relative; top: 300px; text-align:center">
+        <h1>Choose Your Items</h1>
+        <img src="/static/images/bread.jpg" height="50" width="50">
+        <img src="/static/images/cake.jpg" height="50" width="50">
+        <img src="/static/images/chicken.jpg" height="50" width="50">
+        <img src="/static/images/fruits.jpg" height="50" width="50">
+        <img src="/static/images/items.jpg" height="50" width="50">
+        <img src="/static/images/meat.jpg" height="50" width="50">
+        <img src="/static/images/tissue.jpg" height="50" width="50">
+        <img src="/static/images/dairy.jpg" height="50" width="50">
 
-<!--            <h3>测试(json 数据中获取)</h3>-->
-<!--            <p>默认启用空关键字检索。</p>-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" class="form-control" id="test_data">-->
-<!--                        <div class="input-group-btn">-->
-<!--                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-<!--                                <span class="caret"></span>-->
-<!--                            </button>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; /btn-group &ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
 
-<!--            <h3>百度搜索</h3>-->
-<!--            <p>支持逗号分隔多关键字</p>-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <div class="input-group" style="width: 300px;">-->
-<!--                        <input type="text" class="form-control" id="baidu">-->
-<!--                        <div class="input-group-btn">-->
-<!--                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-<!--                                <span class="caret"></span>-->
-<!--                            </button>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; /btn-group &ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
 
-<!--            <h3>淘宝搜索</h3>-->
-<!--            <p>支持逗号分隔多关键字</p>-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <div class="input-group" style="width: 400px;">-->
-<!--                        <input type="text" class="form-control" id="taobao">-->
-<!--                        <div class="input-group-btn">-->
-<!--                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-<!--                                <span class="caret"></span>-->
-<!--                            </button>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; /btn-group &ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+    </div>
 
-<!--        </form>-->
-<!--    </div>-->
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
