@@ -1,9 +1,9 @@
 <!-- 定义导航栏 -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
   <div class="container">
 
     <!-- 导航栏商标 -->
-    <img src="/static/images/logo4.png" style="position: absolute; top: 5px; left: 40px;" height="60" width="110"/>
+<!--    <img src="/static/images/logo4.png" style="position: absolute; top: 5px; left: 40px;" height="60" width="110"/>-->
 <!--    <a class="navbar-brand" href="#">Virtual Shelf</a>-->
 
     <!-- 导航入口 -->
@@ -11,10 +11,10 @@
       <ul class="navbar-nav">
         <!-- 条目 -->
         <li class="nav-item">
-          <a class="nav-link"  style="font-size: x-large; color: #1e0010; position: center" href="{% url 'storage:storage_search' %}">Search</a>
+          <a class="nav-link"  style="font-size: x-large; color: white; position: relative; left: 1050px" href="{% url 'storage:storage_search' %}">Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  style="font-size: x-large; color: #1e0010; position: center" href="{% url 'storage:storage_list' %}">Storage</a>
+          <a class="nav-link"  style="font-size: x-large; color: white; position: relative; left: 1050px" href="{% url 'storage:storage_list' %}">Storage</a>
         </li>
       </ul>
     </div>

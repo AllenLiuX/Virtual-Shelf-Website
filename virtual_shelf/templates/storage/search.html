@@ -8,34 +8,17 @@
 {% endblock title %}
 
 
-
 {% block content %}
-    <style type="text/css">
-        body{
-            background-image: url("/static/images/supermarket.jpg");
-            background-position: center 0;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            -webkit-background-size: cover;
-            -o-background-size: cover;
-            -moz-background-size: cover;
-            -ms-background-size: cover;
-        }
-        .title2{
-            position: relative;
-            top: 170px;
-            left: 400px;
-        }
-        .search{
-            opacity: 0.8;
-            background-image: url('http://static.runoob.com/images/mix/searchicon.png');
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-        }
+<html lang="en" dir="ltr">
+  <head>
+    <title>Menu</title>
+    <link rel = "stylesheet" type = "text/css" href = "../../static/md_css/search.css" />
+    <meta charset="utf-8">
+  </head>
 
-    </style>
+  <img src="/static/images/logo4.png" style="position: absolute; top: 100px; left: 700px;" height="120" width="220"/>
 
+  <body>
     <div class="title2">
         <h1 style="position: relative; left: 270px;">Find The Grocery</h1>
 <!--        <p>这是一个基于 bootstrap 按钮式下拉菜单组件的搜索建议插件.</p>-->
@@ -66,17 +49,16 @@
 
     <div style="position: relative; top: 300px; text-align:center">
         <h1>Choose Your Items</h1>
-        <img src="/static/images/bread.jpg" height="50" width="50">
-        <img src="/static/images/cake.jpg" height="50" width="50">
-        <img src="/static/images/chicken.jpg" height="50" width="50">
-        <img src="/static/images/fruits.jpg" height="50" width="50">
-        <img src="/static/images/items.jpg" height="50" width="50">
-        <img src="/static/images/meat.jpg" height="50" width="50">
-        <img src="/static/images/tissue.jpg" height="50" width="50">
-        <img src="/static/images/dairy.jpg" height="50" width="50">
-
-
-
+        <section class="food_icon">
+          <img src="/static/images/bread.jpg" height="50" width="50">
+          <img src="/static/images/cake.jpg" height="50" width="50">
+          <img src="/static/images/chicken.jpg" height="50" width="50">
+          <img src="/static/images/fruits.jpg" height="50" width="50">
+          <img src="/static/images/items.jpg" height="50" width="50">
+          <img src="/static/images/meat.jpg" height="50" width="50">
+          <img src="/static/images/tissue.jpg" height="50" width="50">
+          <img src="/static/images/dairy.jpg" height="50" width="50">
+        </section>
     </div>
 
 

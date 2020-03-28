@@ -1,0 +1,23 @@
+    body{
+        background-image: url("../../static/images/supermarket.jpg");
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -ms-background-size: cover;
+    }
+    .title2{
+        position: relative;
+        top: 170px;
+        left: 400px;
+    }
+    .search{
+        opacity: 0.8;
+        background-image: url('http://static.runoob.com/images/mix/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+    }
+
