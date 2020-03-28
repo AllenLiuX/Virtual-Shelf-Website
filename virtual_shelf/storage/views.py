@@ -17,3 +17,8 @@ def storage_detail(request, id):
     context = { 'storage': storage }
     # 载入模板，并返回context对象
     return render(request, 'storage/detail.html', context)
+
+def storage_search(request):
+    storages = StoragePost.objects.all()
+    context = {'storages': storages}
+    return render(request, 'storage/search.html', context)
