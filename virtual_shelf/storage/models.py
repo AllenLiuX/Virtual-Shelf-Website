@@ -16,3 +16,35 @@ class StoragePost(models.Model):
 
     def __str__(self):
         return self.title
+
+class Item(models.Model):
+	category = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
+
+	class Meta:
+		ordering = ['name']
+
+	def __str__(self):
+		return self.name
+
+class Store(models.Model):
+	name = models.CharField(max_length=100)
+	address = models.CharField(max_length=200)
+	items = models.ManyToManyField(Item, through='Ownership')
+
+	class Meta:
+		ordering = ('name',)
+
+	def __str__(self):
+		return self.name
+
+class Ownership(models.Model):
+	item = models.ForeignKey(Item, on_delete=models.CASCADE)
+	store = models.ForeignKey(Store, on_delete=models.CASCADE)
+	price = models.FloatField()
+	quantity = models.IntegerField()
+
+
+
+
+
