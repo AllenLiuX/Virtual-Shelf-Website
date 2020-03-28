@@ -28,9 +28,36 @@ def search_item(request, item_name):
         item = Item.objects.get(name=item_name)
     except Item.DoesNotExist:
         item = None
-    if !item:
+    if not item:
         return 
     ownerships = Ownership.objects.filter(item=item)
     context = { 'ownerships': ownerships }
     return render(request, 'storage/item_result.html', context)
 
+def search_store(request, store_name):
+    try:
+        store = Store.objects.get(name=store_name)
+    except Store.DoesNotExist:
+        store = None
+    if not store:
+        return 
+    ownerships = Ownership.objects.filter(store=store)
+    context = { 'ownerships': ownerships }
+    return render(request, 'storage/store_result.html', context)
+
+def search_item_store(request, item_name, store_name):
+    try:
+        store = Store.objects.get(name=store_name)
+    except Store.DoesNotExist:
+        store = None
+    if not store:
+        return 
+    try:
+        item = Item.objects.get(name=item_name)
+    except Item.DoesNotExist:
+        item = None
+    if not item:
+        return 
+    ownerships = Ownership.objects.filter(item=item, store=store)
+    context = { 'ownerships': ownerships }
+    return render(request, 'storage/item_store_result.html', context)
