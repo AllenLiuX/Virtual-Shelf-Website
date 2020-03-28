@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import StoragePost
 
 def storage_list(request):
-    # 取出所有博客文章
+    # list out all stores
     storages = StoragePost.objects.all()
     # 需要传递给模板（templates）的对象
     context = { 'storages': storages }

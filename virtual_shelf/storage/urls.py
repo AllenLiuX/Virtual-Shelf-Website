@@ -4,7 +4,8 @@ from . import views
 app_name = 'storage'
 
 urlpatterns = [
-    path('storage-list/', views.storage_list, name='storage_list'),
     path('storage-detail/<int:id>/', views.storage_detail, name='storage_detail'),
     path('storage-search/', views.storage_search, name='storage_search'),
+    path('storage-list/', views.storage_list, name='storage_list'),
+    
 ]
