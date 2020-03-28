@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import StoragePost
+from .models import StoragePost, Item, Ownership, Store
 
 def storage_list(request):
     # list out all stores
-    storages = StoragePost.objects.all()
-    # 需要传递给模板（templates）的对象
-    context = { 'storages': storages }
-    # render函数：载入模板，并返回context对象
+    # storages = StoragePost.objects.all()
+    # # 需要传递给模板（templates）的对象
+    # context = { 'storages': storages }
+    # # render函数：载入模板，并返回context对象
+    ownerships = Ownership.objects.all()
+    context = {'ownerships': ownerships}
     return render(request, 'storage/list.html', context)
 
 def storage_detail(request, id):
@@ -29,7 +31,7 @@ def search_item(request, item_name):
     except Item.DoesNotExist:
         item = None
     if not item:
-        return 
+        return
     ownerships = Ownership.objects.filter(item=item)
     context = { 'ownerships': ownerships }
     return render(request, 'storage/item_result.html', context)

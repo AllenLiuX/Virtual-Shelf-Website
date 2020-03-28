@@ -1,8 +1,7 @@
 {
   "value": [
     {
-      "userId": "Ralph's",
-      "userName": "Ralph's",
+      "userId": "0",
       "word": "Ralph's",
       "description": "Ralph's"
     },
@@ -14,6 +13,11 @@
     {
       "userId": "2",
       "word": "711",
+      "description": "0"
+    },
+    {
+      "userId": "3",
+      "word": "Trader Joe's",
       "description": "0"
     }
   ]
