@@ -44,8 +44,8 @@ def search_store(request, store_name):
     if not store:
         return 
     ownerships = Ownership.objects.filter(store=store)
-    context = { 'ownerships': ownerships }
-    return render(request, 'storage/list.html', context)
+    context = { 'ownerships': ownerships, 'store': store }
+    return render(request, 'storage/store_result.html', context)
 
 def search_item_store(request, item_name, store_name):
     try:
