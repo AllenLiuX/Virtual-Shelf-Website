@@ -45,7 +45,7 @@ def search_store(request, store_name):
         return 
     ownerships = Ownership.objects.filter(store=store)
     context = { 'ownerships': ownerships }
-    return render(request, 'storage/store_result.html', context)
+    return render(request, 'storage/list.html', context)
 
 def search_item_store(request, item_name, store_name):
     try:
