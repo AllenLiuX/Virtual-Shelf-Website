@@ -1,0 +1,41 @@
+1. 创建虚拟环境
+    conda create -n py373 python=3.7.3
+    source activate py373
+    #exit
+    conda deactivate
+    
+2. 查看虚拟环境
+    #check packages
+    conda list
+    #check virtual environment list
+    conda info --envs
+    
+    
+3. 开始项目
+    django-admin startproject my_blog
+    python manage.py startapp article
+
+4. Migration
+    python manage.py makemigrations
+    python manage.py migrate
+    #migrate 命令选中所有还没有执行过的迁移并应用在数据库上，也就是将模型的更改同步到数据库结构上。
+    #迁移是非常强大的功能，它能让你在开发过程中持续的改变数据库结构而不需要重新删除和创建表。它专注于使数据库平滑升级而不会丢失数据
+    
+5. Admin
+    http://127.0.0.1:8000/admin/
+    
+6. 增加页面
+    1. article/views.py里增加页面视图函数
+    def article_detail(request, id):
+        article = ArticlePost.objects.get(id=id)
+        context = { 'article': article }
+        return render(request, 'article/detail.html', context)
+    
+    2. 增加article/urls.py里的地址
+        path('article-detail/<int:id>/', views.article_detail, name='article_detail'),
+
+    3. 在templates/article/中新建detail.html文件，用{{ article.xxx }}取出了文章标题、作者以及正文
+    
+    4. templates/header.html, templates/article/list.html 添加链接
+    <a class="nav-link" href="{% url 'article:article_list' %}">文章</a>
+    <a href="{% url 'article:article_detail' article.id %}" class="btn btn-primary">阅读本文</a>
