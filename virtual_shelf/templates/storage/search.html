@@ -45,7 +45,7 @@
         </form>
         <!-- <h2 id = search-text>Find your item</h2> -->
       </div>
-      <img id = search-icon src="../../static/images/icon.png" />
+      <img id = search-icon src="../../static/images/icon.png" onclick="jumpPage()"/>
     </div>
 
     <div class="row-container popular-items">
@@ -131,6 +131,20 @@
             return false;
         } else
             return true;
+    }
+
+    function jumpPage() {
+        var store = document.getElementById('test').value;
+        var item = document.getElementById('test2').value;
+        if(store == ''){
+            window.location.href = "http://127.0.0.1:8000/storage/storage-item/" + item + "/";
+        }
+        else if(item == ''){
+            window.location.href = "http://127.0.0.1:8000/storage/storage-store/" + store + "/";
+        }
+        else {
+            window.location.href = "http://127.0.0.1:8000/storage/storage-item-store/" + item + "/" + store + "/";
+        }
     }
     </script>
 {% endblock content %}
