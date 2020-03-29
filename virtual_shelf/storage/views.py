@@ -104,8 +104,8 @@ def storage_create(request):
             # 指定数据库中 id=1 的用户为作者
             # 如果你进行过删除数据表的操作，可能会找不到id=1的用户
             # 此时请重新创建用户，并传入此用户的id
-            new_storage.store = Store.objects.get(name='711')
-            new_storage.item = Item.objects.get(name='Chicken')
+            new_storage.store = Store.objects.get(name=new_storage.storename)
+            new_storage.item = Item.objects.get(name=new_storage.itemname)
             # 将新文章保存到数据库中
             new_storage.save()
             # 完成后返回到文章列表

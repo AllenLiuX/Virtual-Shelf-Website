@@ -8,4 +8,4 @@ class StoragePostForm(forms.ModelForm):
         # 指明数据模型来源
         model = Ownership
         # 定义表单包含的字段
-        fields = ('quantity', 'price')
+        fields = ('quantity', 'price', 'itemname', 'storename')
