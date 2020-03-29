@@ -10,7 +10,7 @@
 <!-- 写入 base.html 中定义的 content -->
 {% block content %}
 <style>
-    body{
+    body {
     background-image: url("/static/images/list.jpg");
     background-position: center 0;
     background-repeat: no-repeat;
@@ -23,21 +23,28 @@
     height: 15000px;
     }
 
-    .maps-container {
-      overflow: hidden;
-      position: fixed;
-      top: 80px;
-      right: 50px;
-      height: 80%;
-      width: 61.8%;
-      border-radius: 25px;
+    .card-header {
+      font: 30px bold arial;
+    }
+
+    .card-text {
+      margin-left: 10px;
+      margin-top: 5px;
+      padding-bottom: 5px;
     }
 </style>
 
 <!-- 定义放置文章标题的div容器 -->
 <<body>
   <!-- 地图 -->
-    <div class="maps-container">
+    <div class="maps-container" style = " overflow: hidden;
+                                          position: fixed;
+                                          top: 80px;
+                                          right: 50px;
+                                          height: 80%;
+                                          width: 61.8%;
+                                          border-radius: 25px;
+                                        ">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtSTvHFS3VAXxI9OrIJBsEGHAswBl-A88">
     </script>
     <div id="googleMap" style="position: absolute;
@@ -61,18 +68,21 @@
     </script>
     </div>
 
-    <div class="row mt-2">
-        <div class="col-4 mb-4">
-            <div class="card h-100" style="opacity: 0.7; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
-                <h5 class="card-header">{{ store }}</h5>
-                {% for ownership in ownerships %}
-                <div><p class="card-text">Item: {{ ownership.item|slice:'100' }}</p></div>
-                <div><p class="card-text">Price: {{ ownership.price|slice:'100' }}</p></div>
-                <div><p class="card-text">Quantity: {{ ownership.quantity|slice:'100' }}</p></div>
-                {% endfor %}
-            </div>
+    <div class="row mt-2" style = "margin-left: 20px;">
+      <div class= "col-4 mb-4" style = "margin-top: 35px;">
+        <div class= "card h-100" style="opacity: 0.7;
+                                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                        width: 90%;">
+          <h5 class="card-header">{{ store }}</h5>
+          <div><p class="card-text">Address: {{ store.address}}</p></div>
+          <!-- {% for ownership in ownerships %}
+          <div><p class="card-text">Item: {{ ownership.item|slice:'100'}}</p></div>
+          <div><p class="card-text">Price: {{ ownership.price|slice:'100'}}</p></div>
+          <div><p class="card-text">Quantity: {{ ownership.quantity|slice:'100'}}</p></div>
+          {% endfor %} -->
         </div>
-
+      </div>
     </div>
+
 </body>
 {% endblock content %}
