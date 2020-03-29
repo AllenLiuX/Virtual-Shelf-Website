@@ -26,13 +26,23 @@ def storage_detail(request, id):
 
 def storage_search(request):
     store_list = []
-    userId = 0
+    userId = 1
     for store in Store.objects.all():
-        temp = {"userId": str(userId), "word": store.name, "description": "0"}
+        temp = {"userId": userId, "word": store.name, "description": "0"}
         store_list.append(temp)
         userId+=1
     d = {"value": store_list}
     with open('static/suggest/data.json', 'w') as outfile:
+        json.dump(d, outfile)
+
+    item_list = []
+    userId = 1
+    for item in Item.objects.all():
+        temp = {"userId": userId, "word": item.name, "description": "0"}
+        item_list.append(temp)
+        userId+=1
+    d = {"value": item_list}
+    with open('static/suggest/data2.json', 'w') as outfile:
         json.dump(d, outfile)
     storages = StoragePost.objects.all()
     context = {'storages': storages}

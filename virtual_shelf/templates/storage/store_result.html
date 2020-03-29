@@ -80,6 +80,26 @@
           <div><p class="card-text">Price: {{ ownership.price|slice:'100'}}</p></div>
           <div><p class="card-text">Quantity: {{ ownership.quantity|slice:'100'}}</p></div>
           {% endfor %} -->
+          <table class="table" style = "font-family : arial">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for ownership in ownerships %}
+              <tr>
+                <td>{{ ownership.item|slice:'100'}}</td>
+                <td>{{ ownership.price|slice:'100'}}</td>
+                <td>{{ ownership.quantity|slice:'100'}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+
         </div>
       </div>
     </div>
