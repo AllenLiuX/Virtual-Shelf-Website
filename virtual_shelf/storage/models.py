@@ -46,7 +46,7 @@ class Ownership(models.Model):
 	price = models.FloatField()
 	quantity = models.IntegerField()
 	created = models.DateTimeField(default=timezone.now)
-	author = models.ForeignKey(User, on_delete=models.CASCADE, default=User.objects.get(id=1))
+	#author = models.ForeignKey(User, on_delete=models.CASCADE, default=User.objects.get(id=1))
 
 	class Meta:
 		ordering = ['store']
