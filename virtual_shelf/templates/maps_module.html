@@ -1,0 +1,30 @@
+<div class="maps-container" style = " overflow: hidden;
+                                      position: fixed;
+                                      top: 80px;
+                                      right: 50px;
+                                      height: 80%;
+                                      width: 61.8%;
+                                      border-radius: 25px;
+                                    ">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtSTvHFS3VAXxI9OrIJBsEGHAswBl-A88">
+</script>
+<div id="googleMap" style="position: absolute;
+                           top: 0px;
+                           right: 65px;
+                           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                           height: 700px;
+                           width: 955px;
+                           position: fixed;">
+</div>
+<script>
+ function initialize() {
+     var mapProp = {
+         center:new google.maps.LatLng(37.09024,-95.71289100000001),
+         zoom:4,
+         mapTypeId:google.maps.MapTypeId.ROADMAP
+     };
+     map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</div>
