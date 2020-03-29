@@ -20,42 +20,126 @@
 
     label{
         color: #1c7430;
+        font-size: larger;
+        font: bolder;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     button{
+        position: relative;
+        top: 40px;
         background-color: #1c7430;
         color: #1c7430;
     }
 
-</style>
+    input{
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
+    }
+    #logo {
+      position: relative;
+      top: 40px;
+      left: 50%;
+      height: 100px;
+      width: auto;
+      transform: translateX(-50%);
+    }
+
+    .box{
+        position: absolute;
+        top: 70px;
+        left: 20%;
+        background-color: white;
+        opacity: 0.6;
+        height: 600px;
+        width: 1050px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border-radius: 15px;
+        padding-bottom: 5px;
+    }
+
+</style>
+<div class="box"></div>
 <div class="container">
+    <img id = logo src="/static/images/logo6.png"/>
     <div class="row">
-        <div class="col-12">
+        <div class="col-8">
             <br>
-            <form method="post" action=".">
+            <form method="post" action="." style="position: relative; left: 27%">
                 {% csrf_token %}
-                <div class="form-group">
-                    <label for="title">STORE</label>
+                <div class="form-group" >
+                    <label for="title"><u>STORE</u></label>
                     <input type="text" class="form-control" id="storename" name="storename">
+                    <div class="input-group-btn">
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="opacity: 0.8;"></ul>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="title">ITEM</label>
+                    <label for="title"><u>ITEM</u></label>
                     <input type="text" class="form-control" id="itemname" name="itemname">
+                    <div class="input-group-btn">
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="opacity: 0.8;"></ul>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="title">PRICE</label>
-                    <input type="text" class="form-control" id="price" name="price">
+                    <label for="title"><u>PRICE</u></label>
+                    <input type="number" class="form-control" id="price" name="price">
                 </div>
                 <div class="form-group">
-                    <label for="title">QUANTITY</label>
-                    <input type="text" class="form-control" id="quantity" name="quantity">
+                    <label for="title"><u>QUANTITY</u></label>
+                    <input type="number" class="form-control" id="quantity" name="quantity">
                 </div>
                 <div style="text-align: center;">
-                    <button type="submit" class="btn btn-primary">POST!</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #1c7430; border-color: white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">POST!</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<!--    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+<!--    <script src="/static/jquery/jquery-3.4.1.js"></script>-->
+<!--    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+    <script src="/static/suggest/bootstrap-suggest.js"></script>
+    <script type="text/javascript">
+
+    var testBsSuggest = $("#storename").bsSuggest({
+        url: "/static/suggest/data.json",
+        effectiveFields: ["word"],
+        // searchFields: [ "shortAccount"],
+        idField: "userId",
+        keyField: "word",
+        inputWarnColor: "rgba(255,0,0,.6)",
+    }).on('onDataRequestSuccess', function (e, result) {
+        console.log('onDataRequestSuccess: ', result);
+    }).on('onSetSelectValue', function (e, keyword) {
+        console.log('onSetSelectValue: ', keyword);
+    }).on('onUnsetSelectValue', function (e) {
+        console.log("onUnsetSelectValue");
+    });
+
+    $("form").submit(function(e) {
+        return false;
+    });
+
+    var testBsSuggest = $("#itemname").bsSuggest({
+        url: "/static/suggest/data2.json",
+        effectiveFields: ["word"],
+        // searchFields: [ "shortAccount"],
+        idField: "userId",
+        keyField: "word",
+        inputWarnColor: "rgba(255,0,0,.6)",
+    }).on('onDataRequestSuccess', function (e, result) {
+        console.log('onDataRequestSuccess: ', result);
+    }).on('onSetSelectValue', function (e, keyword) {
+        console.log('onSetSelectValue: ', keyword);
+    }).on('onUnsetSelectValue', function (e) {
+        console.log("onUnsetSelectValue");
+    });
+
+    // $("form").submit(function(e) {
+    //     return true;
+    // });
+
+    </script>
 {% endblock content %}
