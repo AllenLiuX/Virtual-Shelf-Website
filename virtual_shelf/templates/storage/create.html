@@ -1,45 +1,52 @@
 <!-- extends表明此页面继承自 base.html 文件 -->
 {% extends "base.html" %} {% load staticfiles %}
 <!-- 写入 base.html 中定义的 title -->
-{% block title %} 写文章 {% endblock title %}
+{% block title %} POST Storage {% endblock title %}
 <!-- 写入 base.html 中定义的 content -->
 {% block content %}
-<!-- 写文章表单 -->
+
+<style>
+    body{
+    background-image: url("/static/images/post.jpg");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    }
+
+    label{
+        color: #1c7430;
+    }
+
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
             <br>
-            <!-- 提交文章的表单 -->
             <form method="post" action=".">
-                <!-- Django中需要POST数据的地方都必须有csrf_token -->
                 {% csrf_token %}
-                <!-- 文章标题 -->
                 <div class="form-group">
-                    <!-- 标签 -->
-                    <label for="title">Store</label>
-                    <!-- 文本框 -->
+                    <label for="title">STORE</label>
                     <input type="text" class="form-control" id="storename" name="storename">
                 </div>
                 <div class="form-group">
-                    <!-- 标签 -->
-                    <label for="title">Item</label>
-                    <!-- 文本框 -->
+                    <label for="title">ITEM</label>
                     <input type="text" class="form-control" id="itemname" name="itemname">
                 </div>
                 <div class="form-group">
-                    <!-- 标签 -->
-                    <label for="title">Price</label>
-                    <!-- 文本框 -->
+                    <label for="title">PRICE</label>
                     <input type="text" class="form-control" id="price" name="price">
                 </div>
                 <div class="form-group">
-                    <!-- 标签 -->
-                    <label for="title">Quantity</label>
-                    <!-- 文本框 -->
+                    <label for="title">QUANTITY</label>
                     <input type="text" class="form-control" id="quantity" name="quantity">
                 </div>
-                <!-- 提交按钮 -->
-                <button type="submit" class="btn btn-primary">Post!</button>
+                <button type="submit" class="btn btn-primary">POST!</button>
             </form>
         </div>
     </div>
