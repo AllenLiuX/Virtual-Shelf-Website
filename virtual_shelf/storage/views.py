@@ -9,8 +9,11 @@ def storage_list(request):
     # # 需要传递给模板（templates）的对象
     # context = { 'storages': storages }
     # # render函数：载入模板，并返回context对象
-    ownerships = Ownership.objects.all()
-    context = {'ownerships': ownerships}
+    stores = Store.objects.all()
+    data = {}
+    for s in stores:
+        data[str(s)] = Ownership.objects.filter(store=s)
+    context = {'data': data}
     return render(request, 'storage/list.html', context)
 
 def storage_detail(request, id):

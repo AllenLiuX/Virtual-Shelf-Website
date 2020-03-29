@@ -40,7 +40,7 @@
     google.maps.event.addDomListener(window, 'load', initialize);
     </script>
     
-    {% for ownership in ownerships %}
+    {% for k, v in data.items %}
     <div class="row mt-2">
 
         <!-- 文章内容 -->
@@ -48,8 +48,9 @@
         <!-- 卡片容器 -->
             <div class="card h-100" style="opacity: 0.7; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
                 <!-- 标题 -->
-                <h5 class="card-header">{{ ownership.store }}</h5>
+                <h5 class="card-header">{{ k }}</h5>
                 <!-- 摘要 -->
+                {% for ownership in v %}
                 <div>
                     <p class="card-text">Item: {{ ownership.item|slice:'100' }}</p>
                 </div>
@@ -59,6 +60,7 @@
                 <div>
                     <p class="card-text">Quantity: {{ ownership.quantity|slice:'100' }}</p>
                 </div>
+                {% endfor %}
                 <!-- 注脚 -->
             </div>
         </div>
