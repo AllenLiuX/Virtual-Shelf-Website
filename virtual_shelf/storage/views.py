@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import StoragePost, Item, Ownership, Store
+import json
 
 def storage_list(request):
     # list out all stores
@@ -21,6 +22,15 @@ def storage_detail(request, id):
     return render(request, 'storage/detail.html', context)
 
 def storage_search(request):
+    store_list = []
+    userId = 0
+    for store in Store.objects.all():
+        temp = {"userId": str(userId), "word": store.name, "description": "0"}
+        store_list.append(temp)
+        userId+=1
+    d = {"value": store_list}
+    with open('static/suggest/data.json', 'w') as outfile:
+        json.dump(d, outfile)
     storages = StoragePost.objects.all()
     context = {'storages': storages}
     return render(request, 'storage/search.html', context)
