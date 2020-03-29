@@ -34,26 +34,42 @@
             zoom : 15,
             mapTypeId : google.maps.MapTypeId.ROADMAP
         });
+        var infoWindow = new google.maps.InfoWindow;
+        
+        //use current location
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
 
+        //这个要钱 先备注 用的时候取消备注就可以
+        //var geocoder = new google.maps.Geocoder();
 
-     //这个要钱 先备注 用的时候取消备注就可以
-     //var geocoder = new google.maps.Geocoder();
-
-    function geocodeAddress(geocoder, address, resultsMap) {
-        geocoder.geocode({'address': address}, function (results, status) {
-            if (status === 'OK') {
-                resultsMap.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-        });
-    }
-    //这个是test，然后就把所有超市address存在一个array里，pass给第二个参数就可以
-    geocodeAddress(geocoder, 'ralphs westwood', map);
+        function geocodeAddress(geocoder, address, resultsMap) {
+            geocoder.geocode({'address': address}, function (results, status) {
+                if (status === 'OK') {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+        //这个是test，然后就把所有超市address存在一个array里，pass给第二个参数就可以
+        geocodeAddress(geocoder, 'ralphs westwood', map);
     </script>
     
     {% for k, v in data.items %}
