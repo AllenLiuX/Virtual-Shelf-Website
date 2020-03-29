@@ -12,7 +12,7 @@ def storage_list(request):
     stores = Store.objects.all()
     data = {}
     for s in stores:
-        data[str(s)] = Ownership.objects.filter(store=s)
+        data[s] = Ownership.objects.filter(store=s)
     context = {'data': data}
     return render(request, 'storage/list.html', context)
 
@@ -51,11 +51,12 @@ def search_item(request, item_name):
 
 def search_store(request, store_name):
     try:
-        store = Store.objects.get(name=store_name)
+        store = Store.objects.filter(name=store_name)
     except Store.DoesNotExist:
         store = None
     if not store:
         return 
+    store = store.first()
     ownerships = Ownership.objects.filter(store=store)
     context = { 'ownerships': ownerships, 'store': store }
     return render(request, 'storage/store_result.html', context)
