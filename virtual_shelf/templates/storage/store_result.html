@@ -4,14 +4,14 @@
 
 <!-- 写入 base.html 中定义的 title -->
 {% block title %}
-    首页
+    Store Search Results
 {% endblock title %}
 
 <!-- 写入 base.html 中定义的 content -->
 {% block content %}
 <style>
     body {
-    background-image: url("/static/images/list.jpg");
+    background-image: url("/static/images/list6.jpg");
     background-position: center 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -21,57 +21,12 @@
     -moz-background-size: cover;
     -ms-background-size: cover;
     }
-
-    .card-header {
-      font: 30px bold arial;
-    }
-
-    .card-text {
-      margin-left: 10px;
-      margin-top: 5px;
-      padding-bottom: 5px;
-    }
 </style>
 
-<!-- 定义放置文章标题的div容器 -->
-<<body>
+<body>
     {% include 'maps_module.html' %}
     {% for k, v in data.items %}
-    <div class="row mt-2" style = "margin-left: 20px;">
-      <div class= "col-4 mb-4" style = "margin-top: 35px;">
-        <div class= "card h-100" style="opacity: 0.7;
-                                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                                        width: 90%;">
-          <h5 class="card-header">{{ k }}</h5>
-          <div><p class="card-text">Address: {{ k.address}}</p></div>
-          <!-- {% for ownership in ownerships %}
-          <div><p class="card-text">Item: {{ ownership.item|slice:'100'}}</p></div>
-          <div><p class="card-text">Price: {{ ownership.price|slice:'100'}}</p></div>
-          <div><p class="card-text">Quantity: {{ ownership.quantity|slice:'100'}}</p></div>
-          {% endfor %} -->
-          <table class="table" style = "font-family : arial">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Item</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for ownership in v %}
-              <tr>
-                <td>{{ ownership.item|slice:'100'}}</td>
-                <td>{{ ownership.price|slice:'100'}}</td>
-                <td>{{ ownership.quantity|slice:'100'}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-
-
-        </div>
-      </div>
-    </div>
+      {% include 'render_table.html' %}
     {% endfor %}
 </body>
 {% endblock content %}
