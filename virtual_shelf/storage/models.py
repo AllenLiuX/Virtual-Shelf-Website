@@ -41,8 +41,8 @@ class Store(models.Model):
 class Ownership(models.Model):
 	item = models.ForeignKey(Item, on_delete=models.CASCADE)
 	store = models.ForeignKey(Store, on_delete=models.CASCADE)
-	itemname = models.CharField(max_length=100)
-	storename = models.CharField(max_length=100)
+	itemname = models.CharField(max_length=100, default=item.name)
+	storename = models.CharField(max_length=100, default=store.name)
 	price = models.FloatField()
 	quantity = models.IntegerField()
 
