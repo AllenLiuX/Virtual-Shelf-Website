@@ -28,6 +28,16 @@
     {% for k, v in data.items %}
       {% include 'render_table.html' %}
     {% endfor %}
+    <button style="position:fixed; left: 57%; top: 78%; border-radius: 4px;" onclick="use_cur_location()">Back to Current Location</button>
 </body>
+
+<script>
+function get_address(addr) {
+    // var address = document.getElementById("addr").innerHTML;
+    // window.alert(addr);
+    geocodeAddress(geocoder, addr, map);
+}
+
+</script>
 
 {% endblock content %}

@@ -2,7 +2,7 @@
 <div class="maps-container" style = " overflow: hidden;
                                       position: fixed;
                                       top: 80px;
-                                      right: 50px;
+                                      right: -20px;
                                       height: 80%;
                                       width: 61.8%;
                                       border-radius: 15px;
@@ -24,7 +24,8 @@
         });
         var infoWindow = new google.maps.InfoWindow;
 
-        if (navigator.geolocation) {
+        function use_cur_location(){
+          if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
@@ -46,13 +47,16 @@
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
-        } else {
+          } else {
           // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
         }
+        use_cur_location();
+
 
         //这个要钱 先备注 用的时候取消备注就可以
-        //var geocoder = new google.maps.Geocoder();
+        var geocoder = new google.maps.Geocoder();
 
         function changeMarkerLabelColor(marker, color) {
             var label = marker.getLabel();
@@ -81,7 +85,7 @@
             });
         }
         //这个是test，然后就把所有超市address存在一个array里，pass给第二个参数就可以
-        geocodeAddress(geocoder, 'Hilgard 870', map);
+        // geocodeAddress(geocoder, 'Hilgard 870', map);
 
     </script>
 </div>

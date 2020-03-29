@@ -93,31 +93,17 @@ def search_item_store(request, item_name, store_name):
     return render(request, 'storage/list.html', context)
 
 def storage_create(request):
-    # 判断用户是否提交数据
     if request.method == "POST":
-        # 将提交的数据赋值到表单实例中
         storage_post_form = StoragePostForm(data=request.POST)
-        # 判断提交的数据是否满足模型的要求
         if storage_post_form.is_valid():
-            # 保存数据，但暂时不提交到数据库中
             new_storage = storage_post_form.save(commit=False)
-            # 指定数据库中 id=1 的用户为作者
-            # 如果你进行过删除数据表的操作，可能会找不到id=1的用户
-            # 此时请重新创建用户，并传入此用户的id
             new_storage.store = Store.objects.get(name=new_storage.storename)
             new_storage.item = Item.objects.get(name=new_storage.itemname)
-            # 将新文章保存到数据库中
             new_storage.save()
-            # 完成后返回到文章列表
             return redirect("storage:storage_list")
-        # 如果数据不合法，返回错误信息
         else:
-            return HttpResponse("表单内容有误，请重新填写。")
-    # 如果用户请求获取数据
+            return HttpResponse("Wrong items for the Post. Please post again")
     else:
-        # 创建表单类实例
         storage_post_form = StoragePostForm()
-        # 赋值上下文
         context = { 'storage_post_form': storage_post_form }
-        # 返回模板
         return render(request, 'storage/create.html', context)
