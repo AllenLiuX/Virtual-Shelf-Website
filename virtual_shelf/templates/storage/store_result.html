@@ -20,14 +20,34 @@
     -o-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
+    height: 15000px;
+    }
+
+    .maps-container {
+      overflow: hidden;
+      position: fixed;
+      top: 80px;
+      right: 50px;
+      height: 80%;
+      width: 61.8%;
+      border-radius: 25px;
     }
 </style>
 
 <!-- 定义放置文章标题的div容器 -->
-<div class="container">
-    <!-- 地图 -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtSTvHFS3VAXxI9OrIJBsEGHAswBl-A88"></script>
-    <div id="googleMap" style="position: absolute; top: 77px; right: 65px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); height:800px; width: 900px"></div>
+<<body>
+  <!-- 地图 -->
+    <div class="maps-container">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtSTvHFS3VAXxI9OrIJBsEGHAswBl-A88">
+    </script>
+    <div id="googleMap" style="position: absolute;
+                               top: 0px;
+                               right: 65px;
+                               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                               height: 800px;
+                               width: 955px;
+                               position: fixed;">
+    </div>
     <script>
      function initialize() {
          var mapProp = {
@@ -39,31 +59,20 @@
     }
     google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    </div>
 
     <div class="row mt-2">
-
-        <!-- 文章内容 -->
         <div class="col-4 mb-4">
-        <!-- 卡片容器 -->
             <div class="card h-100" style="opacity: 0.7; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
-                <!-- 标题 -->
                 <h5 class="card-header">{{ store }}</h5>
-                <!-- 摘要 -->
                 {% for ownership in ownerships %}
-                <div>
-                    <p class="card-text">Item: {{ ownership.item|slice:'100' }}</p>
-                </div>
-                <div>
-                    <p class="card-text">Price: {{ ownership.price|slice:'100' }}</p>
-                </div>
-                <div>
-                    <p class="card-text">Quantity: {{ ownership.quantity|slice:'100' }}</p>
-                </div>
+                <div><p class="card-text">Item: {{ ownership.item|slice:'100' }}</p></div>
+                <div><p class="card-text">Price: {{ ownership.price|slice:'100' }}</p></div>
+                <div><p class="card-text">Quantity: {{ ownership.quantity|slice:'100' }}</p></div>
                 {% endfor %}
-                <!-- 注脚 -->
             </div>
         </div>
 
     </div>
-</div>
+</body>
 {% endblock content %}
