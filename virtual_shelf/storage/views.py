@@ -77,7 +77,7 @@ def search_store(request, store_name):
 
 def search_item_store(request, item_name, store_name):
     try:
-        store = Store.objects.get(name=store_name)
+        store = Store.objects.filter(name=store_name)
     except Store.DoesNotExist:
         store = None
     if not store:
@@ -88,9 +88,12 @@ def search_item_store(request, item_name, store_name):
         item = None
     if not item:
         return 
-    ownerships = Ownership.objects.filter(item=item, store=store)
-    context = { 'ownerships': ownerships }
-    return render(request, 'storage/list.html', context)
+    data={}
+    for s in store:
+        ownerships = Ownership.objects.filter(store=s, item=item)
+        data[s] = ownerships
+    context = { 'data': data }
+    return render(request, 'storage/store_result.html', context)
 
 def storage_create(request):
     if request.method == "POST":
