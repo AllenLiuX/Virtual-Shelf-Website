@@ -66,9 +66,11 @@ def search_store(request, store_name):
         store = None
     if not store:
         return 
-    store = store.first()
-    ownerships = Ownership.objects.filter(store=store)
-    context = { 'ownerships': ownerships, 'store': store }
+    data={}
+    for s in store:
+        ownerships = Ownership.objects.filter(store=s)
+        data[s] = ownerships
+    context = { 'data': data }
     return render(request, 'storage/store_result.html', context)
 
 def search_item_store(request, item_name, store_name):
