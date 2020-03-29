@@ -49,7 +49,7 @@ class Ownership(models.Model):
 	#author = models.ForeignKey(User, on_delete=models.CASCADE, default=User.objects.get(id=1))
 
 	class Meta:
-		ordering = ['store']
+		ordering = ('-created',)
 
 	def __str__(self):
 		return str(self.quantity) + " " + self.item.name + " in " + self.store.name
