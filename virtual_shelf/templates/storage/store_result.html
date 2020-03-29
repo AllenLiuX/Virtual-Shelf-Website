@@ -33,7 +33,6 @@
     }
 </style>
 
-<!-- 定义放置文章标题的div容器 -->
 <<body>
     <div class="row mt-2" style = "margin-left: 20px;">
       <div class= "col-4 mb-4" style = "margin-top: 35px;">
@@ -42,11 +41,6 @@
                                         width: 90%;">
           <h5 class="card-header">{{ k }}</h5>
           <div><p class="card-text">Address: {{ k.address}}</p></div>
-          <!-- {% for ownership in ownerships %}
-          <div><p class="card-text">Item: {{ ownership.item|slice:'100'}}</p></div>
-          <div><p class="card-text">Price: {{ ownership.price|slice:'100'}}</p></div>
-          <div><p class="card-text">Quantity: {{ ownership.quantity|slice:'100'}}</p></div>
-          {% endfor %} -->
           <table class="table" style = "font-family : arial">
             <thead class="thead-light">
               <tr>
@@ -65,8 +59,6 @@
               {% endfor %}
             </tbody>
           </table>
-
-
         </div>
       </div>
     </div>
