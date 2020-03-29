@@ -38,7 +38,7 @@
 
       <div class = "search-box">
         <form action="index_submit" method="get" accept-charset="utf-8" role="form">
-            <input type="text" class="form-control" id="test" placeholder="Find your item..">
+            <input type="text" class="form-control" id="test2" placeholder="Find your item..">
             <div class="input-group-btn">
               <ul class="dropdown-menu dropdown-menu-right" role="menu" style="opacity: 0.8;"></ul>
             </div>
@@ -81,13 +81,12 @@
     <script type="text/javascript">
 
     var testBsSuggest = $("#test").bsSuggest({
-        //url: "/rest/sys/getuserlist?keyword=",
         url: "/static/suggest/data.json",
         effectiveFields: ["word"],
         // searchFields: [ "shortAccount"],
-        // effectiveFieldsAlias:{userName: "姓名"},
         idField: "userId",
-        keyField: "word"
+        keyField: "word",
+        inputWarnColor: "rgba(255,0,0,.6)",
     }).on('onDataRequestSuccess', function (e, result) {
         console.log('onDataRequestSuccess: ', result);
     }).on('onSetSelectValue', function (e, keyword) {
@@ -99,5 +98,39 @@
     $("form").submit(function(e) {
         return false;
     });
+
+    var testBsSuggest = $("#test2").bsSuggest({
+        url: "/static/suggest/data2.json",
+        effectiveFields: ["word"],
+        // searchFields: [ "shortAccount"],
+        idField: "userId",
+        keyField: "word",
+        inputWarnColor: "rgba(255,0,0,.6)",
+    }).on('onDataRequestSuccess', function (e, result) {
+        console.log('onDataRequestSuccess: ', result);
+    }).on('onSetSelectValue', function (e, keyword) {
+        console.log('onSetSelectValue: ', keyword);
+    }).on('onUnsetSelectValue', function (e) {
+        console.log("onUnsetSelectValue");
+    });
+
+    $("form").submit(function(e) {
+        return false;
+    });
+
+    function handleEnter(field, event) {
+        var keyCode = event.keyCode ? event.keyCode : event.which ? event.which
+                : event.charCode;
+        if (keyCode == 13) {
+            var i;
+            for (i = 0; i < field.form.elements.length; i++)
+                if (field == field.form.elements[i])
+                    break;
+            i = (i + 1) % field.form.elements.length;
+            field.form.elements[i].focus();
+            return false;
+        } else
+            return true;
+    }
     </script>
 {% endblock content %}
