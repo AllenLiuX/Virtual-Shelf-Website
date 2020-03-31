@@ -19,6 +19,8 @@ python3 manage.py runserver
 
 ### Go to http://127.0.0.1:8000/admin/ on browser to open the Django Administration for database.
 
+![image](Resource/deom3.gif]
+
 ## Inspiration
 The outbreak of coronavirus (COVID-19) has significantly influenced the wellbeing of people and imposed great challenges on societies. The empty shelves at supermarkets are one of the most essential problems. People feel panic buying daily supplies; meanwhile, lots of us are frustrated after waiting for hours and finding out that the good we want just went out of stock.
 
