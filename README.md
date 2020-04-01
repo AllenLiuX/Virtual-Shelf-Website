@@ -69,6 +69,35 @@ Second, we want to incorporate a real-time update database if we can cooperate w
 
 Moreover, we intend to embellish our interface and make better UI designs, such as adding shadows and animations. We also want to make an app that does the same job as our website, so that users could access our database by their mobile phones.
 
+## Contributions
+
+### Vincent Liu
+Django Management
+
+HTML and javascript implementation
+
+Search Suggest implementation
+
+Partial CSS implementation
+
+### Jerry Ma
+Many-to-many database design and migration
+
+django view API implementation
+
+### Stefan Li
+
+online deployment
+
+CSS management
+
+Partial HTML implementation
+
+### Candice Deng
+Logo design
+
+Google map API implementation
+
 ![image](Resource/post.jpg)
 
 ![image](Resource/administration.jpg)
