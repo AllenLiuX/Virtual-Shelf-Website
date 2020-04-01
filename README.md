@@ -1,5 +1,7 @@
 # La-Hacks
 
+![image](Resource/stores.jpg)
+
 ## How to run our website
 
 ### Install python3.7 and Django version 2.2
@@ -67,7 +69,9 @@ Second, we want to incorporate a real-time update database if we can cooperate w
 
 Moreover, we intend to embellish our interface and make better UI designs, such as adding shadows and animations. We also want to make an app that does the same job as our website, so that users could access our database by their mobile phones.
 
+![image](Resource/post.jpg)
 
+![image](Resource/administration.jpg)
 
 
 
