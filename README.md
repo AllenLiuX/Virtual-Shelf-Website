@@ -1,4 +1,4 @@
-# La-Hacks
+# Virtual Shelf
 
 ![image](Resource/search.jpg)
 
@@ -9,9 +9,9 @@
 pip install django==2.2
 
 ### clone the repo and `cd` into `virtual_shelf` directory
-clone https://github.com/AllenLiuX/La-Hacks.git
+clone https://github.com/AllenLiuX/Virtual-Shelf-Website.git
 
-cd La-Hacks/virtual_shelf
+cd Virtual-Shelf-Website/virtual_shelf
 
 ### run `python3 manage.py runserver` to start the server
 
