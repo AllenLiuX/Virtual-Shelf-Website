@@ -1,6 +1,6 @@
 # La-Hacks
 
-![image](Resource/stores.jpg)
+![image](Resource/search.jpg)
 
 ## How to run our website
 
