@@ -1,4 +1,6 @@
-# La-Hacks
+# Virtual Shelf
+
+![image](Resource/search.jpg)
 
 ## How to run our website
 
@@ -7,15 +9,19 @@
 pip install django==2.2
 
 ### clone the repo and `cd` into `virtual_shelf` directory
-clone https://github.com/AllenLiuX/La-Hacks.git
+clone https://github.com/AllenLiuX/Virtual-Shelf-Website.git
 
-cd La-Hacks/virtual_shelf
+cd Virtual-Shelf-Website/virtual_shelf
 
 ### run `python3 manage.py runserver` to start the server
 
 python3 manage.py runserver
 
 ### Go to http://127.0.0.1:8000/storage/storage-search/ on browser to open our front page.
+
+### Go to http://127.0.0.1:8000/admin/ on browser to open the Django Administration for database.
+
+![image](Resource/demo3.gif)
 
 ## Inspiration
 The outbreak of coronavirus (COVID-19) has significantly influenced the wellbeing of people and imposed great challenges on societies. The empty shelves at supermarkets are one of the most essential problems. People feel panic buying daily supplies; meanwhile, lots of us are frustrated after waiting for hours and finding out that the good we want just went out of stock.
@@ -63,7 +69,38 @@ Second, we want to incorporate a real-time update database if we can cooperate w
 
 Moreover, we intend to embellish our interface and make better UI designs, such as adding shadows and animations. We also want to make an app that does the same job as our website, so that users could access our database by their mobile phones.
 
+## Contributions
 
+### Vincent Liu
+Django Management
+
+HTML and javascript implementation
+
+Search Suggest implementation
+
+Partial CSS implementation
+
+### Jerry Ma
+Many-to-many database design and migration
+
+django view API implementation
+
+### Stefan Li
+
+online deployment
+
+CSS management
+
+Partial HTML implementation
+
+### Candice Deng
+Logo design
+
+Google map API implementation
+
+![image](Resource/post.jpg)
+
+![image](Resource/administration.jpg)
 
 
 
